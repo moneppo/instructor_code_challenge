@@ -15,7 +15,7 @@
 
 - Please **choose one** of the back-ends before you proceed. Feel free to pick whichever language you feel more comfortable in.
 
-- Both back-ends contain several errors that commonly made by students, so you will need to do some debugging to ensure they are working correctly.
+- Both back-ends contain several errors that are commonly made by students, so you will need to do some debugging to ensure they are working correctly.
 
 **Front-end Instructions**
 
@@ -46,4 +46,4 @@
 
 **Bonus**
 
-- Rewrite the application using a JavaScript MVC library. Include a readme that explains the benefits and any additional challenges students would face learning the library
+- Rewrite the application using a JavaScript MVC library. Include a readme that explains the benefits and any additional challenges students would face learning the library.
