@@ -112,6 +112,7 @@ h3 {
 }
 
 .bar input#search {
+	-webkit-appearance: none;
 	border: solid 2px gray;
 	border-radius: 4px;
 	width: 75%;
@@ -137,8 +138,8 @@ h3 {
 /* This moves the modal off to the side of the screen. If the 'hidden' class is
    removed, the modal will slide in from the right. */
 .modal.hidden {
-	transform: translate(125%, 0px);
-	-webkit-transform: translate(125%, 0px);
+	transform: translate(100vw, 0px);
+	-webkit-transform: translate(100vw, 0px);
 }
 
 .modal .bar h1 {
