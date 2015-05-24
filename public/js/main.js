@@ -3,33 +3,31 @@
 // These two functions demonstrate basic asynchronous JSON requests.
 
 function get(url, then) {
-	console.log(url);
 	var req = new XMLHttpRequest();
 	req.onreadystatechange = function() {
-    if (this.readyState == 4) {
-			if (this.status == 200) {
+    if (this.readyState === 4) {
+			if (this.status === 200) {
       	then(null, JSON.parse(req.responseText));
     	} else {
 				then('Error with GET ' + url + ':' + this.readyState);
 			}
 		}
-	}
+	};
 	req.open('GET', url, true);
 	req.send();
 }
 
 function post(url, data, then) {
-	console.log(url);
 	var req = new XMLHttpRequest();
 	req.onreadystatechange = function() {
-		 if (this.readyState == 4) {
-			 if (this.status == 200) {
+		 if (this.readyState === 4) {
+			 if (this.status === 200) {
       	then(null, JSON.parse(req.responseText));
     	} else {
 				then('Error with POST ' + url + ':' + this.readyState);
 			}
-		 }
-	}
+		}
+	};
 	req.open('POST', url, true);
 	req.setRequestHeader('Content-type', 'application/json');
 	req.send(JSON.stringify(data));
@@ -47,7 +45,7 @@ function createMovieListingElement(data, parent) {
 	
 	// Sometimes a movie doesn't have a poster, so we'll show a generic
 	// poster
-	if (data.Poster == 'N/A') {
+	if (data.Poster === 'N/A') {
 		data.Poster = 'images/genericPoster.png';
 	}
 	
@@ -106,7 +104,7 @@ function createMovieListingElement(data, parent) {
 // This requires that the browser has called onreadystatechange, and that the
 // document's state is 'complete'
 document.onreadystatechange = function() {
-	if (document.readyState == 'complete') {
+	if (document.readyState === 'complete') {
 		
 		// First we get references to all the elements we'll add interactivity to
 		var form = document.forms['search-form'];
@@ -118,16 +116,10 @@ document.onreadystatechange = function() {
 		var back = document.getElementById('back');
 		var modal = document.getElementById('modal');
 		
-		// And then we add callbacks for clicking items.
-		submit.addEventListener('click', searchButtonClicked);
-		star.addEventListener('click', starButtonClicked);
-		back.addEventListener('click', backButtonClicked);
-		search.addEventListener('keydown', keyPressed);
-		
 		// When the return key is pressed (keycode 13), we want the search function
 		// to be kicked off, but nothing else.
 		function keyPressed(event) {
-    	if (event.keyCode == 13) {
+    	if (event.keyCode === 13) {
       	searchButtonClicked(event);
 				event.preventDefault();
     	}
@@ -136,8 +128,8 @@ document.onreadystatechange = function() {
 		function searchButtonClicked(event) {
 			event.preventDefault();
 			var requestString = form.action;
-			for (var i = 0; i < form.length; i++) {
-				if (form.elements[i].type != 'submit') {
+			for (var i = 0; i < form.elements.length; i++) {
+				if (form.elements[i].type !== 'submit') {
     			requestString += form.elements[i].name + '=' + 
 													 form.elements[i].value + '&';
 				}
@@ -203,5 +195,11 @@ document.onreadystatechange = function() {
 				});
 			});
 		}
+		
+			// And then we add callbacks for clicking items.
+		submit.addEventListener('click', searchButtonClicked);
+		star.addEventListener('click', starButtonClicked);
+		back.addEventListener('click', backButtonClicked);
+		search.addEventListener('keydown', keyPressed);
 	}
 }  
