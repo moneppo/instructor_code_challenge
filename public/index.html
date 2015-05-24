@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Movie Search!</title>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/main.css">
+		<script src="js/main.js"></script>
+	</head>
+	<body>
+		<div class="main">
+			<div class="bar">	
+				<form id="search-form" method="get" action="http://www.omdbapi.com/?">
+					<span class="icon" id="search-button"><i class="fa fa-search"></i></span>
+					<input type="search" id="search" placeholder="Search for movies..." name="s">
+				</form>
+				<span class="icon" id="star"><i class="fa fa-star"></i></span>
+			</div>
+			<div class="content" id="results"></div>
+		</div>
+		<div class="modal hidden" id="modal">
+			<div class="bar">
+				<span class="icon" id="back"><i class="fa fa-angle-left"></i></span>
+				<h1>Favorites</h1>
+			</div>
+			<div class="content" id="favorites"></div>
+			</div>
+	</body>
+</html>

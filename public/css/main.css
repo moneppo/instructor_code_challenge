@@ -1,0 +1,156 @@
+body {
+	font-family: "Avenir Next", Arial, sans-serif;
+	font-size: 12pt;
+	margin: 0px;
+	padding: 0px;
+	
+	/* Setting a maximum width and using relative widths for everything else is 
+	 a simple way to get some responsiveness into the design of the page. 
+	 Additional steps would need to be taken to make sure the page is rock 
+	 solid on mobile, but this is a good start. */
+	max-width: 800px;
+	
+	/* Centering in the window */
+	margin: 0 auto 0 auto;
+	
+	/* This ensures that the modal box is positioned properly using 
+	   position: absolute */
+	position: relative;
+}
+
+.icon {
+	font-size: 2em;
+	color: gray;
+}
+
+h3 {
+	margin: 3px;
+}
+
+/* SEARCH RESULT LISTING */
+
+.listing {
+	border: solid gray 1px;
+	border-radius: 4px;
+	width: 95%;
+	background-color: lightgray;
+	
+	/* This ensures the expanded info isn't shown 
+	   until the user clicks to expand it */
+	overflow: hidden;
+	
+	/* Centering */
+	margin: 10px auto 10px auto;
+}
+
+.listing img {
+	float: left;
+	margin: 10px;
+	height: 150px;
+}
+
+.listing .short-info {
+	float: left;
+	margin: 10px;
+}
+
+.listing .expanded-info {
+	clear: both;
+	margin-left: 15px;
+	
+	/* This animates the expansion of the expanded info when the user clicks. 
+	   Having a max-height of zero makes it hidden, and the transitions 
+	   animate any modification to max-height. When the parent div (.listing)
+	   gets the 'expanded' class added to it, the max-height is set to something
+	   large and the box animates as it grows to fit the content. */
+	max-height: 0;
+	transition: max-height 1.0s ease-in-out;
+	-webkit-transition: max-height 1.0s ease-in-out;
+}
+
+.listing.expanded .expanded-info {
+	max-height: 1000px;
+}
+
+.listing .icon {
+	float: right;
+	margin: 10px;
+}
+
+.listing .icon.pressed {
+	color: gold;
+}
+
+.listing p {
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+
+/* SEARCH BAR */ 
+
+.bar {
+	width: 100%;
+	height: 70px;
+	background-color: white;
+}
+
+.bar form {
+	float: left;
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+
+.bar #star {
+	padding: 12px;
+  float: right;
+	color: gold;
+}
+
+.bar #search-button {
+	margin-left: 5px;
+}
+
+.bar input#search {
+	border: solid 2px gray;
+	border-radius: 4px;
+	width: 75%;
+	height: 48px;
+	margin: 10px;
+	font-size: 1.5em;
+}
+
+/* FAVORITES */
+
+/* This is a modal box that fills its parent, in our case the body. 
+   Its appearance is animated by using transforms. */
+.modal {
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: white;
+	transition: transform 1.0s ease-in-out;
+	-webkit-transition: -webkit-transform 1.0s ease-in-out;
+}
+
+/* This moves the modal off to the side of the screen. If the 'hidden' class is
+   removed, the modal will slide in from the right. */
+.modal.hidden {
+	transform: translate(125%, 0px);
+	-webkit-transform: translate(125%, 0px);
+}
+
+.modal .bar h1 {
+	margin: 10px 0 0 20px;
+	float: left;
+}
+
+.modal .bar .icon {
+	float: left;
+	margin: 10px 0 0 10px;
+}
+
+.modal .listing .icon {
+	color: gold;
+}
