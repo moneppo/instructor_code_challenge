@@ -116,9 +116,12 @@ document.onreadystatechange = function() {
 		var back = document.getElementById('back');
 		var modal = document.getElementById('modal');
 		
-		// When the return key is pressed (keycode 13), we want the search function
-		// to be kicked off, but nothing else.
+		// Next we define several functions for handling the various interaction
+		// cases.
+		
 		function keyPressed(event) {
+			// When the return key is pressed (keycode 13), we want the search function
+		  // to be kicked off, but nothing else.
     	if (event.keyCode === 13) {
       	searchButtonClicked(event);
 				event.preventDefault();
@@ -196,7 +199,7 @@ document.onreadystatechange = function() {
 			});
 		}
 		
-			// And then we add callbacks for clicking items.
+	  // And then we add callbacks for clicking items.
 		submit.addEventListener('click', searchButtonClicked);
 		star.addEventListener('click', starButtonClicked);
 		back.addEventListener('click', backButtonClicked);
